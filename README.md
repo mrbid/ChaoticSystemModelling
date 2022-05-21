@@ -19,7 +19,7 @@ The supplied models have been trained from a ~15GB dataset produced by executing
 
 ## inputs
 
-input for the `uc` program
+keyboard input for the `uc` program
 - `N` = New simulation.
 - `F` = FPS to console.
 - `P` = Toggle CPU and NEURAL modes.
