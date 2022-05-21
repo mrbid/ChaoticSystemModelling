@@ -30,7 +30,6 @@ while True:
                                         r = model.predict(input)
                                         y = r.flatten()
                                         with open("/dev/shm/uc_r.dat", "wb") as f2:
-                                                for x in y:
-                                                        f2.write(pack('f', x))
+                                                for x in y: f2.write(pack('f', x))
         except Exception:
                 pass
