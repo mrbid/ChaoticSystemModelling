@@ -3,7 +3,7 @@ This was an experiment to see how well a Feed-forward Neural Network could model
 
 ## how
 
-This is developed to execute under a Linux operating system.
+This is developed to execute under a Linux operating system. As always I tend to put important notes in the `main.c` header ([main.c](main.c) & [/cli/main.c](/cli/main.c)).
 
 If you would just like to see the result execute `launch_neuralsim.sh` you will need [Python3](https://www.python.org/downloads/), [TensorFlow](https://www.tensorflow.org/), and [XTERM](https://invisible-island.net/xterm/) installed. You may need to re-compile the binary first depending on the Linux distribution you are using by executing `release.sh`.
 
