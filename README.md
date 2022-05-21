@@ -17,6 +17,8 @@ The network does learn some concept of the outer boundaries of the unit sphere b
 
 The supplied models have been trained from a ~15GB dataset produced by executing `./cli/go.sh` which launched 64 instances of the cli dataset logging program. It took only a few seconds to generate said dataset.
 
+It's not that interesting, I tried, here is the outcome.
+
 ## inputs
 
 keyboard input for the `uc` program
