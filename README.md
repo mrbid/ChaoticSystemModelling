@@ -15,7 +15,7 @@ I did try to teach the network to output only direction vectors but the networks
 
 The network does learn some concept of the outer boundaries of the unit sphere but it seems more of a cubic representation then a spherical one.
 
-The supplied models have been trained from a ~15GB dataset from executing `./cli/go.sh` which launched 64 instances of the cli dataset logging program. It took only a few seconds to generate said dataset.
+The supplied models have been trained from a ~15GB dataset produced by executing `./cli/go.sh` which launched 64 instances of the cli dataset logging program. It took only a few seconds to generate said dataset.
 
 ## inputs
 
