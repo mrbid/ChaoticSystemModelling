@@ -22,6 +22,9 @@
         I really like this model because I can produce large unique
         datasets very quickly.
         
+        This is configured to output 400,000 samples of data which is
+        replayed at 60fps so that is 1.85 hours worth of data.
+        
 */
 
 #include <stdio.h>
