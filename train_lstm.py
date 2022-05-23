@@ -125,7 +125,7 @@ model.add(LSTM( (layer_units), batch_input_shape=(None,inputsize,1) )) #, recurr
 # model.add(GRU((layer_units), batch_input_shape=(None,inputsize,1)))
 
 for x in range(layers):
-    model.add(Dropout(.3))
+    # model.add(Dropout(.3))
     model.add(Dense(layer_units, activation=activator))
 
 model.add(Dropout(.3))
