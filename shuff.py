@@ -1,5 +1,5 @@
 # James William Fletcher - May 2022
-# https://github.com/?
+# https://github.com/mrbid
 import sys
 import os
 import numpy as np
