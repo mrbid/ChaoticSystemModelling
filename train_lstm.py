@@ -115,19 +115,17 @@ print("Time Taken:", "{:.2f}".format(timetaken), "seconds")
 #   TRAIN
 ##########################################
 
-dropout = 0
-
 # construct neural network
 model = Sequential()
 
 # model.add(Dense(layer_units, activation=activator, input_dim=inputsize))
 
 # model.add(SimpleRNN((layer_units), batch_input_shape=(None,inputsize,1)))
-model.add(LSTM( (layer_units), batch_input_shape=(None,inputsize,1) )) #, recurrent_dropout=dropout))
+model.add(LSTM( (layer_units), batch_input_shape=(None,inputsize,1) )) #, recurrent_dropout=.3))
 # model.add(GRU((layer_units), batch_input_shape=(None,inputsize,1)))
 
 for x in range(layers):
-    model.add(Dropout(dropout))
+    model.add(Dropout(.3))
     model.add(Dense(layer_units, activation=activator))
 
 model.add(Dropout(.3))
