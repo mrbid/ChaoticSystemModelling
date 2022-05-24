@@ -15,7 +15,7 @@ I trained a few models as you can see in the [/models](models) directory but the
 
 I did try to teach the network to output only direction vectors but the network had a harder time minimising the loss in these instances, I assume this is because when a collision occurs the direction vector updates very frequently and erratically as two spheres lock together maintaining prolonged intersection in some instances. The network trained better using sphere position as the target output and then from the last position and the new position from the neural network I calculate a new direction vector. This works much better. But as you can see, it's not close to replicating the original simulation at all.
 
-The network does learn some concept of the outer boundaries of the unit sphere but it seems more of a cubic representation then a spherical one.
+The network does learn some concept of the outer boundaries of the unit sphere but it seems more of a cubic representation than a spherical one.
 
 The supplied models have been trained from a ~15GB dataset produced by executing `./cli/go.sh` which launched 64 instances of the cli dataset logging program. It took only a few seconds to generate said dataset.
 
