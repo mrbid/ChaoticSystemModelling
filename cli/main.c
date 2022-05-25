@@ -188,8 +188,13 @@ int main(int argc, char** argv)
                 vReflect(&spheres[i].dir, spheres[i].dir, sd);
                 vNorm(&spheres[i].dir); // hmm or not?
 
+                vec ob = spheres[i].pos;
+                vNorm(&ob);
+                vInv(&ob);
+
                 vec inc;
-                vMulS(&inc, spheres[i].dir, (mod-1.f)+SPHERE_SPEED);
+                vMulS(&inc, ob, (mod-1.f)+SPHERE_SPEED);
+                // vMulS(&inc, spheres[i].dir, (mod-1.f)+SPHERE_SPEED);
                 vAdd(&spheres[i].pos, spheres[i].pos, inc);
             }
 
