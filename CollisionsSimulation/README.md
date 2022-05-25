@@ -15,7 +15,7 @@ If you would just like to see the result execute `launch_neuralsim.sh` you will 
 
 This version attempts to output the reflected direction vector when a collision occurs.
 
-The results are abysmal, the [EntireSimulation](../EntireSimulation) version had better results and even those are in the range of being abysmal.
+The results are abysmal, the [EntireSimulation](../EntireSimulation) version had better results and even that is in the range of being abysmal.
 
 The supplied models have been trained from a ~15GB dataset produced by executing `./cli/go.sh` which launched 64 instances of the cli dataset logging program. It took only a few seconds to generate said dataset.
 
