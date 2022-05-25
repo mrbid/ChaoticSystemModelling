@@ -1,7 +1,7 @@
 # ChaoticSystemModelling
 This is an experiment to see how well a Feed-forward Neural Network could model a chaotic system.
 
-This version attempts to simulate every position of a sphere at each timestep of the simulation.
+This version attempts to predict every sphere position at each timestep of the simulation.
 
 ## how
 
