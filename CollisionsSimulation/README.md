@@ -1,5 +1,5 @@
 # ChaoticSystemModelling
-This is an experiment to see how well a Feed-forward Neural Network could model a chaotic system.
+This is an experiment to see how well a Feed-forward Neural Network can model a chaotic system.
 
 This version attempts to simulate just the collisions by predicting the reflected unit vector of a sphere when a collision occurs.
 
