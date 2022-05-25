@@ -161,7 +161,7 @@ int main(int argc, char** argv)
     }
 
     // pre-compute
-    const f32 SPHERE_SCALE_2 = SPHERE_SCALE*2.f;
+    const f32 SPHERE_SCALE_2 = SPHERE_SCALE*1.8f;
     
     // run full pelt until buffer is filled then dump it to a file and exit.
     while(1)
@@ -179,23 +179,35 @@ int main(int argc, char** argv)
             vMulS(&inc, spheres[i].dir, SPHERE_SPEED);
             vAdd(&spheres[i].pos, spheres[i].pos, inc);
 
-            if(vMod(spheres[i].pos) > 1.f)
+            const f32 mod = vMod(spheres[i].pos);
+            if(mod > 1.f)
             {
                 vec sd = spheres[i].pos;
                 vNorm(&sd);
 
                 vReflect(&spheres[i].dir, spheres[i].dir, sd);
-                vNorm(&spheres[i].dir);
+                vNorm(&spheres[i].dir); // hmm or not?
+
+                vec inc;
+                vMulS(&inc, spheres[i].dir, (mod-1.f)+SPHERE_SPEED);
+                vAdd(&spheres[i].pos, spheres[i].pos, inc);
             }
 
             for(uint j = 0; j < MAX_SPHERES; j++)
             {
                 if(j == i){continue;} // dont collide with self
 
-                if(vDist(spheres[i].pos, spheres[j].pos) < SPHERE_SCALE_2)
+                const f32 d = vDist(spheres[i].pos, spheres[j].pos);
+                if(d < SPHERE_SCALE_2)
                 {
+                    // reflect the ball direction
                     vReflect(&spheres[i].dir, spheres[j].dir, spheres[i].dir);
                     vNorm(&spheres[i].dir);
+
+                    // increment the ball to a non-inersecting distance in the new direction
+                    vec inc;
+                    vMulS(&inc, spheres[i].dir, (SPHERE_SCALE_2-d)+SPHERE_SPEED);
+                    vAdd(&spheres[i].pos, spheres[i].pos, inc);
                 }
             }
 
