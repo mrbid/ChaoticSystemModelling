@@ -1,1 +1,0 @@
-for i in {1..64}; do nohup ./ucc > /dev/null 2>&1 & done
