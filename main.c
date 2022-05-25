@@ -400,13 +400,18 @@ void main_loop()
             vMulS(&inc, spheres[i].dir, SPHERE_SPEED);
             vAdd(&spheres[i].pos, spheres[i].pos, inc);
 
-            if(vMod(spheres[i].pos) > 1.f)
+            const f32 mod = vMod(spheres[i].pos);
+            if(mod > 1.f)
             {
                 vec sd = spheres[i].pos;
                 vNorm(&sd);
 
                 vReflect(&spheres[i].dir, spheres[i].dir, sd);
                 vNorm(&spheres[i].dir); // hmm or not?
+
+                vec inc;
+                vMulS(&inc, spheres[i].dir, (mod-1.f)+SPHERE_SPEED);
+                vAdd(&spheres[i].pos, spheres[i].pos, inc);
             }
 
             for(uint j = 0; j < MAX_SPHERES; j++)
@@ -414,7 +419,8 @@ void main_loop()
                 if(j == i){continue;} // dont collide with self
 
                 const f32 d = vDist(spheres[i].pos, spheres[j].pos);
-                if(d < SPHERE_SCALE*2.f)
+                const f32 cd = SPHERE_SCALE*1.8f;
+                if(d < cd)
                 {
                     if(RENDER_PASS == 1){glUniform3f(color_id, 1.f, 0.f, 0.f);}
 
@@ -422,9 +428,15 @@ void main_loop()
                     // vNorm(&sdj);
                     // vReflect(&spheres[i].dir, sdj, spheres[i].dir);
                     // vNorm(&spheres[i].dir);
-
+                    
+                    // reflect the ball direction
                     vReflect(&spheres[i].dir, spheres[j].dir, spheres[i].dir);
                     vNorm(&spheres[i].dir);
+
+                    // increment the ball to a non-inersecting distance in the new direction
+                    vec inc;
+                    vMulS(&inc, spheres[i].dir, (cd-d)+SPHERE_SPEED);
+                    vAdd(&spheres[i].pos, spheres[i].pos, inc);
 
                     // char strts[16];
                     // timestamp(&strts[0]);
@@ -495,6 +507,10 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
                 char strts[16];
                 timestamp(&strts[0]);
                 printf("[%s] Neural sim: OFF\n", strts);
+
+                // reset neural colours
+                for(uint i = 0; i < MAX_SPHERES; i++)
+                    spheres[i].c = 0.f;
             }
         }
     }
