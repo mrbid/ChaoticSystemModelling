@@ -63,7 +63,7 @@
 #include "inc/esAux2.h"
 
 #include "inc/res.h"
-#include "assets/low.h"
+#include "inc/low.h"
 
 //*************************************
 // globals
