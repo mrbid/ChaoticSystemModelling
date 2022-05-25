@@ -409,8 +409,13 @@ void main_loop()
                 vReflect(&spheres[i].dir, spheres[i].dir, sd);
                 vNorm(&spheres[i].dir); // hmm or not?
 
+                vec ob = spheres[i].pos;
+                vNorm(&ob);
+                vInv(&ob);
+
                 vec inc;
-                vMulS(&inc, spheres[i].dir, (mod-1.f)+SPHERE_SPEED);
+                vMulS(&inc, ob, (mod-1.f)+SPHERE_SPEED);
+                // vMulS(&inc, spheres[i].dir, (mod-1.f)+SPHERE_SPEED);
                 vAdd(&spheres[i].pos, spheres[i].pos, inc);
             }
 
@@ -487,6 +492,19 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
                 fc = 0;
                 llct = t;
                 lc = 0;
+            }
+        }
+
+        // orbit in
+        else if(key == GLFW_KEY_O)
+        {
+            for(uint i = 0; i < MAX_SPHERES; i++)
+            {
+                vRuvBT(&spheres[i].pos); // random point on outside of unit sphere
+                vMulS(&spheres[i].pos, spheres[i].pos, (randf()*0.3f)+1.2f); // project it away from the unit sphere a little
+                vRuvBT(&spheres[i].dir); // random point on outside of unit sphere
+                vNorm(&spheres[i].dir); // hmm or not?
+                spheres[i].c = 0.f;
             }
         }
 
