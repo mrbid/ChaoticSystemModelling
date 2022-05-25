@@ -545,7 +545,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
             if(zoom != -0.3f)
                 zoom = -0.3f;
             else
-                zoom = -3.3f;
+                zoom = -2.33f;
         }
     }
 }
