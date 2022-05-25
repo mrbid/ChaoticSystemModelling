@@ -7,7 +7,7 @@ This version attempts to simulate every position of a sphere at each timestep of
 
 This is developed to execute under a Linux operating system.
 
-As always I tend to put important notes in the header of `main.c` ([main.c](main.c) & [/cli/main.c](/cli/main.c)).
+As always I tend to put important notes in the header of `main.c` ([main.c](main.c) & [cli/main.c](cli/main.c)).
 
 If you would just like to see the result execute `launch_neuralsim.sh` you will need [Python3](https://www.python.org/downloads/), [TensorFlow](https://www.tensorflow.org/), and [XTERM](https://invisible-island.net/xterm/) installed. You may need to re-compile the binary first depending on the Linux distribution you are using by executing `release.sh`.
 
