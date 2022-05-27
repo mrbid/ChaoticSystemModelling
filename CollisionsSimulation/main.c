@@ -224,18 +224,15 @@ __attribute__((always_inline)) inline void modelBind(const ESModel* mdl) // C co
 
 void rSphere(f32 x, f32 y, f32 z)
 {
-    if(RENDER_PASS == 1)
-    {
-        mIdent(&model);
-        mTranslate(&model, x, y, z);
-        mScale(&model, SPHERE_SCALE, SPHERE_SCALE, SPHERE_SCALE);
-        mMul(&modelview, &model, &view);
+    mIdent(&model);
+    mTranslate(&model, x, y, z);
+    mScale(&model, SPHERE_SCALE, SPHERE_SCALE, SPHERE_SCALE);
+    mMul(&modelview, &model, &view);
 
-        glUniformMatrix4fv(projection_id, 1, GL_FALSE, (f32*) &projection.m[0][0]);
-        glUniformMatrix4fv(modelview_id, 1, GL_FALSE, (f32*) &modelview.m[0][0]);
+    glUniformMatrix4fv(projection_id, 1, GL_FALSE, (f32*) &projection.m[0][0]);
+    glUniformMatrix4fv(modelview_id, 1, GL_FALSE, (f32*) &modelview.m[0][0]);
 
-        glDrawElements(GL_TRIANGLES, low_numind, GL_UNSIGNED_SHORT, 0);
-    }
+    glDrawElements(GL_TRIANGLES, low_numind, GL_UNSIGNED_SHORT, 0);
 }
 
 //*************************************
@@ -450,8 +447,9 @@ void main_loop()
                 }
             }
         }
-
-        rSphere(spheres[i].pos.x, spheres[i].pos.y, spheres[i].pos.z);
+        
+        if(RENDER_PASS == 1)
+            rSphere(spheres[i].pos.x, spheres[i].pos.y, spheres[i].pos.z);
     }
 
     if(RENDER_PASS == 1)
