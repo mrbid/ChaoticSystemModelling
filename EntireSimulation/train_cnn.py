@@ -49,7 +49,7 @@ activator = 'tanh'
 layers = 8
 layer_units = 384
 batches = 8
-mode = 0
+mode = '2D'
 
 # load options
 argc = len(sys.argv)
