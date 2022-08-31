@@ -608,7 +608,7 @@ int main(int argc, char** argv)
     printf("----\n");
     printf("UnitCollider\n");
     printf("----\n");
-    printf("James William Fletcher (james@voxdsp.com)\n");
+    printf("James William Fletcher (github.com/mrbid)\n");
     printf("----\n");
     printf("Argv(2): msaa, maxfps\n");
     printf("e.g; ./uc 16 60\n");
