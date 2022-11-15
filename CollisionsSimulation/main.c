@@ -229,9 +229,7 @@ void rSphere(f32 x, f32 y, f32 z)
     mScale(&model, SPHERE_SCALE, SPHERE_SCALE, SPHERE_SCALE);
     mMul(&modelview, &model, &view);
 
-    glUniformMatrix4fv(projection_id, 1, GL_FALSE, (f32*) &projection.m[0][0]);
     glUniformMatrix4fv(modelview_id, 1, GL_FALSE, (f32*) &modelview.m[0][0]);
-
     glDrawElements(GL_TRIANGLES, low_numind, GL_UNSIGNED_SHORT, 0);
 }
 
@@ -677,6 +675,7 @@ int main(int argc, char** argv)
     glClearColor(0.13, 0.13, 0.13, 0.0);
 
     shadeLambert(&position_id, &projection_id, &modelview_id, &lightpos_id, &color_id, &opacity_id);
+    glUniformMatrix4fv(projection_id, 1, GL_FALSE, (f32*) &projection.m[0][0]);
     glUniform3f(lightpos_id, lightpos.x, lightpos.y, lightpos.z);
     glUniform1f(opacity_id, 1.0f);
     modelBind(&mdlSphere); // we are only using one model
