@@ -433,7 +433,7 @@ void main_loop()
                     vReflect(&spheres[i].dir, spheres[j].dir, spheres[i].dir);
                     vNorm(&spheres[i].dir);
 
-                    // increment the ball to a non-inersecting distance in the new direction
+                    // increment the ball to a non-intersecting distance in the new direction
                     vec inc;
                     vMulS(&inc, spheres[i].dir, (cd-d)+SPHERE_SPEED);
                     vAdd(&spheres[i].pos, spheres[i].pos, inc);
